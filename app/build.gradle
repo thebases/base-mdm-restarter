@@ -9,13 +9,13 @@ android {
             storePassword 'ru424242'
         }
     }
-    compileSdkVersion 28
+    compileSdk 35
     defaultConfig {
         applicationId "com.hmdm.emuilauncherrestarter"
-        minSdkVersion 14
-        targetSdkVersion 28
-        versionCode 4
-        versionName "1.04"
+        minSdk 24
+        targetSdk 35
+        versionCode 1001
+        versionName '1.0.0.1'
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
     }
     buildTypes {
