@@ -1,4 +1,4 @@
-package com.hmdm.emuilauncherrestarter;
+package com.base.emuilauncherrestarter;
 
 import org.junit.Test;
 

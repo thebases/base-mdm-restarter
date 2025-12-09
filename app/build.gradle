@@ -1,22 +1,29 @@
 apply plugin: 'com.android.application'
 
 android {
+    compileSdk 35
+
     signingConfigs {
         config {
-            keyAlias 'ru424242'
-            keyPassword 'ru424242'
-            storeFile file('D:/projects/keystore_ru424242')
-            storePassword 'ru424242'
+            storeFile file('C:\\Git\\android_keystores\\base\\base.jks')
+            keyAlias = 'base'
+            keyPassword 'Base12345678@'
+            storePassword 'Base12345678@'
+        }
+        debug {
+            storeFile file('C:\\Git\\android_keystores\\base\\base.jks')
+            keyAlias = 'base'
+            keyPassword 'Base12345678@'
+            storePassword 'Base12345678@'
         }
     }
-    compileSdk 35
     defaultConfig {
-        applicationId "com.hmdm.emuilauncherrestarter"
+        applicationId "com.base.emuilauncherrestarter"
         minSdk 24
         targetSdk 35
-        versionCode 1001
-        versionName '1.0.0.1'
-        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+        versionCode 1000
+        versionName '1.0.0.0'
+//        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
     }
     buildTypes {
         release {
@@ -27,6 +34,21 @@ android {
         debug {
             signingConfig signingConfigs.config
         }
+    }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_11
+        targetCompatibility JavaVersion.VERSION_11
+    }
+}
+
+static def releaseTime() {
+    return new Date().format("ddMMyyyy", TimeZone.getTimeZone("UTC"))
+}
+
+android.applicationVariants.all {
+    variant -> variant.outputs.all {
+        outputFileName = "restarter_${variant.buildType.name}_v${variant.versionName}_${releaseTime()}.apk"
     }
 }
 

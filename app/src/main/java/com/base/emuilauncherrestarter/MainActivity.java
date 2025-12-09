@@ -1,4 +1,4 @@
-package com.hmdm.emuilauncherrestarter;
+package com.base.emuilauncherrestarter;
 
 import android.content.Intent;
 import android.content.pm.PackageInfo;
@@ -11,8 +11,8 @@ import android.util.Log;
 public class MainActivity extends AppCompatActivity {
 
     private final String LOG_TAG = "LauncherRestarter";
-    private final String LEGACY_LAUNCHER_PACKAGE_ID = "ru.headwind.kiosk";
-    private final String LAUNCHER_PACKAGE_ID = "com.hmdm.launcher";
+    private final String LEGACY_LAUNCHER_PACKAGE_ID = "com.base.kiosk";
+    private final String LAUNCHER_PACKAGE_ID = "com.base.launcher";
     private int restartAttempts = 60;
     private final String LAUNCHER_OLD_VERSION = "oldVersion";
     private String oldLauncherVersion;
@@ -61,12 +61,9 @@ public class MainActivity extends AppCompatActivity {
     };
 
     private void guaranteedStart(final Intent intent) {
-        Runnable runnable = new Runnable() {
-            @Override
-            public void run() {
-                Log.i(LOG_TAG, "Starting Headwind MDM Launcher!");
-                startActivity(intent);
-            }
+        Runnable runnable = () -> {
+            Log.i(LOG_TAG, "Starting Base MDM Launcher!");
+            startActivity(intent);
         };
 
         // Delay and re-send intent after 3, 10 and 30 sec to ensure launcher is running

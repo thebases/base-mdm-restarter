@@ -1,4 +1,4 @@
-package com.hmdm.emuilauncherrestarter;
+package com.base.emuilauncherrestarter;
 
 import android.content.Context;
 import android.support.test.InstrumentationRegistry;
